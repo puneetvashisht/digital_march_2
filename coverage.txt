@@ -9,3 +9,13 @@ Day1 - JavaScript
 	Example
 		HTML page contains an image. 
 		If you click on the image, image should be changed with any other image.
+		
+	External Scripts
+	Dynamic elements
+		change text
+		change tag
+		create element
+		delete element
+		
+	setTimeout
+	setInterval

@@ -1,0 +1,75 @@
+<html>
+<head>
+	<title>Todo App</title>
+</head>
+<body>
+	Todo: <input type="text" id="todoText" placeholder="Enter todo">
+	<button onclick="addRow('tableBody')">AddTodo</button>
+	<button onclick="deleteRows('tableBody')">DeleteTodos</button>
+	<hr/>
+	<table border="1" width="60%">
+		<thead>
+			<tr>
+				<th>Todo</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody id="tableBody">
+		</tbody>
+	</table>
+	
+	<script>
+		function addRow(tableId){
+			var todo = document.getElementById("todoText").value.trim();
+			document.getElementById("todoText").value = "";
+			console.log(todo);
+			if(todo.length){
+				var tbody = document.getElementById(tableId);
+				var rowsCount = tbody.rows.length;
+				console.log(rowsCount);
+				var row = tbody.insertRow(rowsCount);
+
+				var firstCell = row.insertCell(0);
+				firstCell.innerHTML = "<i>" + todo + "</i>";
+
+				var secondCell = row.insertCell(1);
+				var element = document.createElement("input");
+				element.type = "checkbox";
+				element.name = "chkTodo";
+
+				secondCell.appendChild(element);
+			} else {
+				alert("Enter some todo to add in the list")
+			}
+
+		}
+		
+		function deleteRows(tableId){
+			var tbody = document.getElementById(tableId);
+			var rowsCount = tbody.rows.length;
+			for(var i=0;i<rowsCount;i++){
+				var currentRow = tbody.rows[i];
+//				console.log(currentRow);
+				var chkBox = currentRow.cells[1].childNodes[0];
+//				console.log(chkBox)
+				if(chkBox.checked){
+//					console.log("Row number "+i+" is going to be deleted");
+					tbody.deleteRow(i);
+					rowsCount--;
+					i--;
+				}
+			}		
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
