@@ -1,2 +1,11 @@
 PuneetVashisht@gmail.com
 
+Day1 - JavaScript
+	datatype
+	function
+	object {}
+	basic javascaript DOM
+	
+	Example
+		HTML page contains an image. 
+		If you click on the image, image should be changed with any other image.

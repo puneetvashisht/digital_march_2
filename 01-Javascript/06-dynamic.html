@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Basic Dynamic</title>
+	
+</head>
+<body>
+	<h1>Heading 1</h1>
+	<h1 onclick="changeText()">Heading 2</h1>
+	<h1>Heading 3</h1>
+	
+	<script>
+		console.log("java script is running in html");
+		console.log(document.body);
+		var heads = document.getElementsByTagName("h1");
+		console.log(heads[1].innerText)
+		
+//		alert(heads[1]);
+		
+		function changeText(){
+			console.log("Clicked");
+			heads[1].innerText = "Changed by JavaScript";
+		}
+		
+		var thirdHead = heads[2];
+		thirdHead.addEventListener('click', function(){
+			console.log("Clicked third h1");
+//			thirdHead.innerText = "<i>Last Head</i>";
+			thirdHead.innerHTML = "<i>Last Head</i>";
+		})
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
