@@ -34,7 +34,7 @@ function addAll(){
 	return sum;
 }
 var result = addAll(3, 7, '100')
-
+ 
 
 function addAll(){
 	//console.log(arguments);

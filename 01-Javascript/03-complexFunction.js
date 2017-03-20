@@ -2,7 +2,7 @@ var operators = {
 	'+' : function(fn, sn){return fn + sn},
 	'*' : function(fn, sn){return fn * sn},
 	'/' : function(fn, sn){return fn / sn}
-}
+} 
 
 function cal(operand1, operand2, operator){
 	var func = operators[operator];

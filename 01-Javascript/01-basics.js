@@ -1,6 +1,6 @@
 // variables & datatype
 
-var someVar = "some text";
+var someVar = "some text"; 
 
 typeof someVar
 "string"

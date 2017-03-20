@@ -1,7 +1,7 @@
 //es5
 function Employee(fName, lName, dept, salary){
 	this.fName = fName;
-	this.lName = lName;
+	this.lName = lName; 
 	this.dept = dept;
 	this.salary = salary;
 	
