@@ -19,3 +19,8 @@ Day1 - JavaScript
 		
 	setTimeout
 	setInterval
+	
+	Example
+		Add current day, month and year in our clock demo
+		
+	Validation

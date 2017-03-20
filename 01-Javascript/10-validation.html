@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>Validation Demo</title>
+</head>
+<body>
+	<form action="" onsubmit="return login()">
+		<input type="text" placeholder="example@gmail.com" id="email"><span id="error"></span>
+		<br/>
+		<input type="text" placeholder="******" />
+		<br/>
+		<button type="submit" id="loginBtn">Login</button>
+	</form>
+	<script>
+		function login(){
+			var email = document.getElementById('email').value.trim();
+			var regEmail = /^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+			
+			var isValid = false;
+			if(regEmail.test(email)){
+				document.getElementById('error').innerText = "";
+				isValid = true;
+			} else {
+				document.getElementById('error').innerText = "Invalid email";
+				isValid = false;
+			}
+			return isValid;
+//			Puneet.vashisht007@gmail.com
+//			Sangeet_Dagar89@y7mail.com
+		}
+	</script>
+</body>
+</html>
