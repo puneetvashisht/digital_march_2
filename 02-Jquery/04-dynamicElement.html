@@ -1,0 +1,55 @@
+<html>
+<head>
+	<title>Create Dynamic Elements in jQuery</title>
+	<script src="lib/jquery.min.js"></script>
+	
+	<style>
+		#customDiv{
+			border: 2px solid black;
+			border-radius: 15px;
+			margin: 0 auto;
+			width: 500px;			
+		}
+		
+	</style>
+	<script>
+		$(document).ready(function(){
+			var myDiv = $("<div>");
+			console.log(myDiv);
+			myDiv.attr("id", "customDiv")
+//			myDiv.append(
+//				$("<p>").html("Para")
+//						.css({"padding-left":"50px"})
+//			)
+			
+			for(var i=0;i<5;i++){
+				myDiv.append(
+					$("<p>").html("Para "+(i+1))
+							.attr("id", "para"+(i+1))
+							.css({"padding-left":"50px"})
+				)
+			}			
+			//add to body
+			$(myDiv).appendTo(document.body)
+			
+						
+//			$("#para2").css({"background":"black", "color":"white"});
+			
+			$("#customDiv p:first").html("First para");
+			$("#customDiv p:nth-child(4)").html("Fourth para");
+
+			$("#customDiv p:nth-child(odd)").css({"background":"black", "color":"white"});
+			
+			$("p").click(function(){
+				$(this).parent().css({"background":"lightblue"});
+				$("#customDiv p:nth-child(4)").remove();
+				$("#customDiv p:nth-child(odd)").css({"background":"black", "color":"white"});
+				$("#customDiv p:nth-child(even)").css({"background":"white", "color":"black"});
+			})
+		})
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

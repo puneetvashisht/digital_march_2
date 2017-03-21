@@ -28,8 +28,10 @@ Day1 - JavaScript
 Day2 - Jquery
 		JavaScript library
 	Basics
-	Select
+	Selector
 	Dynamic Element Creation - Todo
+		Exercise
+			Write todo app in jquery
 	Animation
 	Validation
 	Ajax - HTTP request
