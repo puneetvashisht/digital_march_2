@@ -1,0 +1,75 @@
+<html>
+<head>
+	<title>Animation in jQuery</title>
+	<script src="lib/jquery.min.js"></script>
+	
+	<style>
+		.container{
+			margin: 0 auto;
+			width: 80%;
+			position: relative;
+			border: 2px solid cornflowerblue;
+			border-radius: 20px;
+		}
+		#animateText{
+			margin: 10px auto;
+			width: 240px;
+			position: relative;
+			border: 2px solid cornflowerblue;
+			border-radius: 20px;
+		}
+		#animateText>h3{
+			margin: 0;
+			text-align: center;
+		}
+		
+		.large{
+			background: black;
+			color: white;
+			padding: 20px;
+		}
+		.tiny{
+			background: white;
+			color: black;
+			padding: 10px;
+		}
+	</style>
+	
+	<script>
+		$(document).ready(function(){
+			var state = true;
+			$('#toggle').click(function(){
+				if(state){
+					$('#animateText').animate({width:500}, 4000, function(){
+						$(this).removeClass("tiny")
+						$(this).addClass("large")
+					})
+				} else {
+					$('#animateText').animate({width:250}, 4000, function(){
+						$(this).removeClass("large")
+						$(this).addClass("tiny")
+					})
+				}
+				state = !state;
+			})
+		})
+	</script>
+</head>
+<body>
+	<button id="toggle">Toggle Effect</button>
+	<div class="container">
+		<div id="animateText">
+			<h3>Animate</h3>
+			<p>Your session should begin shortly. You can close this window now.
+Questions?
+ If there's a problem with your session, launch GoToTraining again.
+ Contact Global Customer Support or tweet to us @gototraining.<br/>
+ Your session should begin shortly. You can close this window now.
+Questions?
+ If there's a problem with your session, launch GoToTraining again.
+ Contact Global Customer Support or tweet to us @gototraining.
+ </p>
+		</div>
+	</div>		
+</body>
+</html>

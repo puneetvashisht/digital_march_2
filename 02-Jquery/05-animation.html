@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>Animation in jQuery</title>
+	<script src="lib/jquery.min.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			$('#hideBtn').on('click', function(){
+				$('img').hide(2000);
+			})
+			$('#showBtn').on('click', function(){
+				$('img').show(2000);
+			})
+			$('#fadeInBtn').on('click', function(){
+				$('img').fadeIn(4000);
+			})
+			$('#fadeOutBtn').on('click', function(){
+				$('img').fadeOut(3000);
+			})
+			$('#slideUpBtn').on('click', function(){
+				$('img').slideUp(2000);
+			})
+			$('#slideDownBtn').on('click', function(){
+				$('img').slideDown(3000);
+			})
+			
+			$("#animateBtn").click(function(){
+				$('img').animate({width: 250}, 2000, function(){
+					$(this).css({'border': '2px solid black', 'border-radius':'15px 10px'})
+					$(this).animate({width: 400}, 2000);
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<button id="hideBtn">Hide</button>
+	<button id="showBtn">Show</button>
+	<button id="fadeInBtn">Fade In</button>
+	<button id="fadeOutBtn">Fade Out</button>
+	<button id="slideUpBtn">SlideUp</button>
+	<button id="slideDownBtn">SlideDown</button>
+	<button>toggle - hide/show</button>
+	<button>slideToggle - slideUp/slideDown</button>
+	<button>fadeToggle - fadeIn/fadeOut</button>
+	<button id="animateBtn">Animate</button>
+	<br/>
+	<img src="./../01-Javascript/images/baby_1.jpg" alt="">	
+</body>
+</html>
