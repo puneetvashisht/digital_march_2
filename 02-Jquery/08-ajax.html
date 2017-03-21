@@ -1,0 +1,123 @@
+<html>
+<head>
+	<title>Ajax in jQuery</title>
+	<script src="lib/jquery.min.js"></script>
+	<style>
+		span{
+			color: magenta;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			$("img").hide();
+			$(":button").click(function(){
+				var regEmail = /^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+				var regPwd = /^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+				
+				var email = $("#email").val().trim();
+				var pwd = $("#pwd").val().trim();
+				
+				var hasError = true;
+
+				if(email.length === 0){
+					console.log("Empty email");
+					$("#emailError").html("Have not entered email");
+					hasError = true;
+				}
+				else if(regEmail.test(email)){
+					console.log("valid email");
+					$("#emailError").html("");
+					hasError = false;
+				} else {
+					console.log("invalid email");
+					$("#emailError").html("Invalid email");
+					hasError = true;
+				}
+				
+				if(pwd.length === 0){
+					console.log("Empty pwd");
+					$("#pwdError").html("Have not entered password");
+					hasError = true;
+				}
+				else if(regPwd.test(pwd)){
+					console.log("valid password");
+					$("#pwdError").html("");
+					hasError = false;
+				} else {
+					console.log("invalid password");
+					$("#pwdError").html("Invalid password");
+					hasError = true;
+				}
+				
+				if(hasError == false){
+					$("img").show();
+					$('form').hide();
+					console.log("send ajax request to server");
+					
+/*
+					$.post("./dummyServer/getUser.json", {useremail: email, userpwd: pwd})
+						.success(function(response){
+							console.log("success from server");
+							console.log(response);
+							$("img").hide();
+						
+							if(response.success){
+								console.log("Hide login form");
+								$("#greet").html("<i>Welcome "+email+"</i>")
+							} else {
+								console.log("Login again");
+								$('form').show();
+							}
+						})
+						.error(function(xhr, status, error){
+							console.log("error from server");
+							console.log(xhr);
+							console.log(status);
+							console.log(error)
+						});
+*/
+					$.ajax({
+						type: 'post',
+//						url: './dummyServer/getUser.json',
+						url: 'http://localhost:7777/login',
+						data: {username: email, password: pwd},
+						dataType: 'json',
+						success: function(response){
+							console.log("success from server");
+							console.log(response);
+							$("img").hide();
+						
+							if(response.success){
+								console.log("Hide login form");
+								$("#greet").html("<i>Welcome "+email+"</i>")
+							} else {
+								console.log("Login again");
+								$('form').show();
+							}
+						},
+						error: function(xhr, status, error){
+							console.log("error from server");
+							console.log(xhr);
+							console.log(status);
+							console.log(error)
+						}
+					})
+					
+					
+				}
+			})
+		})
+	</script>
+</head>
+<body>
+	<form>
+		Email: <input type="text" id="email" placeholder="example@gmail.com"><span id="emailError"></span><br/>
+		Password: <input type="password" id="pwd" placeholder="******"><span id="pwdError"></span><br/>
+		
+		<input type="button" value="Login"><br/>
+	</form>
+	
+	<img src="./images/ajax-loader.gif" alt="">
+	<h1 id="greet"></h1>
+</body>
+</html>

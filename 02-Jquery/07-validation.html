@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>Validation in jQuery</title>
+	<script src="lib/jquery.min.js"></script>
+	<style>
+		span{
+			color: magenta;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			$(":submit").click(function(){
+				var regEmail = /^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+				var regPwd = /^[a-zA-Z]{1,8}$/;
+				var email = $("#email").val().trim();
+				var pwd = $("#pwd").val().trim();
+				
+				var hasError = true;
+
+				if(email.length === 0){
+					console.log("Empty email");
+					$("#emailError").html("Have not entered email");
+					hasError = true;
+				}
+				else if(regEmail.test(email)){
+					console.log("valid email");
+					$("#emailError").html("");
+					hasError = false;
+				} else {
+					console.log("invalid email");
+					$("#emailError").html("Invalid email");
+					hasError = true;
+				}
+				
+				if(pwd.length === 0){
+					console.log("Empty pwd");
+					$("#pwdError").html("Have not entered password");
+					hasError = true;
+				}
+				else if(regPwd.test(pwd)){
+					console.log("valid password");
+					$("#pwdError").html("");
+					hasError = false;
+				} else {
+					console.log("invalid password");
+					$("#pwdError").html("Invalid password");
+					hasError = true;
+				}
+				return !hasError;
+//				return false;
+			})
+		})
+	</script>
+</head>
+<body>
+	<form action="someUrl">
+		Email: <input type="text" id="email" placeholder="example@gmail.com"><span id="emailError"></span><br/>
+		Password: <input type="password" id="pwd" placeholder="******"><span id="pwdError"></span><br/>
+		
+		<input type="submit" value="Login"><br/>
+	</form>
+</body>
+</html>
