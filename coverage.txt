@@ -24,3 +24,12 @@ Day1 - JavaScript
 		Add current day, month and year in our clock demo
 		
 	Validation
+	
+Day2 - Jquery
+		JavaScript library
+	Basics
+	Select
+	Dynamic Element Creation - Todo
+	Animation
+	Validation
+	Ajax - HTTP request
