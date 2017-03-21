@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>Jquery Selectors Demo</title>
+	<script src="./lib/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+//			$('p').html("paras")
+			$('div').css({"border":"2px solid red", margin: "15px", "color":"magenta"});
+			
+			$('div#outer').css({"padding":"10px", "color":"cornflowerblue"})
+			
+			//nested elements
+			$('div#outer p').css({"text-align":"center"})
+			//direct child elements
+			$('div#outer>p').css({"text-align":"right"})
+			
+			$("div#inner>p").css({"background":"black", "color":"white"})
+		})
+	</script>
+</head>
+<body>
+	<p>Para in body</p>
+	<div id="outer">
+		<p>Para in outer div</p>
+		<div id="inner">
+			<p>Para in inner div</p>
+		</div>
+	</div>
+</body>
+</html>

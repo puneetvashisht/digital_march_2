@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title>Jquery Selectors Demo</title>
+	
+	<style>
+		.usernameCss{
+			border: 4px solid cornflowerblue;
+			background: black;
+			color: white;
+		}
+		.pwdCss{
+			border-color: red;
+			border-style: dashed;
+			border-width: 2px;
+			background: yellow;
+		}
+	</style>
+	
+	<script src="./lib/jquery.min.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			$("#firstHead").text("Login Page");
+			$(".head").css({"text-align":"center", "border-bottom": "1px solid black"})
+			
+			$(":text").focusin(function(){
+				$(this).addClass("usernameCss");
+			})
+			$(":text").focusout(function(){
+				$(this).removeClass("usernameCss");
+			})
+			$(":password").focusin(function(){
+				$(this).addClass("pwdCss");
+			})
+			$(":password").focusout(function(){
+				$(this).removeClass("pwdCss");
+			})
+			
+//			$('button').on('click', function(){})
+			$('button').click(function(){
+				console.log("You are regitered in database")
+			})
+			
+			$('*').click(function(){
+				console.log($(this))
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1 class="head" id="firstHead"></h1>
+		Username: <input type="text" placeholder="example@gmail.com" /><br/>
+		Password: <input type="password" placeholder="******" /><br/>
+		Address: <input type="text" placeholder="Address" /><br/>
+		<button>Sign Up</button>
+	
+</body>
+</html>
