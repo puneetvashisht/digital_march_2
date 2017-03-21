@@ -38,3 +38,19 @@ Day2 - Jquery
 	Animation
 	Validation
 	Ajax - HTTP request
+	
+		Exercise:
+			Write SignUp page
+				Username
+				Password
+				Confirm Password
+				Email Id
+				Contact
+				
+				Validate
+				
+				Ajax - dummyServer/register.json
+					{"success":true}
+						You are registered.
+					{"success":false}
+						Email already taken.
