@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>Angular Filter Demo</title>
+	<script src="./lib/angular.min.js"></script>
+	
+	<script>
+		var app = angular.module('myApp', []);
+		app.filter('capitalize', function(){
+			return function(input){
+				console.log("in filter :"+input);
+				return input.charAt(0).toUpperCase() + input.slice(1).toLowerCase()
+			};
+		})
+		app.controller("filterDemoCtrl", function($scope){
+			$scope.name = "SWaPnAshReE"
+		})
+	</script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="filterDemoCtrl">
+		<input type="text" placeholder="Enter your name" ng-model="name" /><hr/>
+
+		<h2>Name: {{name}}</h2>
+		<h2>Uppercase: {{name | uppercase}}</h2>
+		<h2>Uppercase: {{name | lowercase}}</h2>
+		<h2>Capitalize: {{name | capitalize}}</h2>
+		<h2>Reverse: {{name | reverse}}</h2>
+	</div>
+	
+</body>
+</html>
+

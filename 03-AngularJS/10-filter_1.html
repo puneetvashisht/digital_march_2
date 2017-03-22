@@ -1,0 +1,53 @@
+<html>
+<head>
+	<title>Angular Filter Demo</title>
+	<script src="./lib/angular.min.js"></script>
+	
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller("filterDemoCtrl", function($scope){
+			$scope.num = 123456789.6789123;
+			$scope.price = $scope.num;
+			$scope.today = new Date();
+		})
+	</script>
+</head>
+<body ng-app="myApp">
+	<input type="text" placeholder="Enter your name" ng-model="name" /><hr/>
+	
+	<h2>Name: {{name}}</h2>
+	<h2>Uppercase: {{name | uppercase}}</h2>
+	<h2>Uppercase: {{name | lowercase}}</h2>
+	<hr/>
+	<div ng-controller="filterDemoCtrl">
+		<h2>Num: {{num}}</h2>
+		<h2>Number: {{num | number}}</h2>
+		<h2>NumberPrecision2: {{num | number:2}}</h2>
+		<hr/>
+		<h2>Price:{{price}}</h2>
+		<h2>Price-$:{{price | currency}}</h2>
+		<h2>Price-YEN:{{price | currency:"Yen"}}</h2>
+		<h2>Price-Rs:{{price | currency:"Rs/-"}}</h2>
+		<hr/>
+		<h2>Today: {{today}}</h2>
+		<h2>Medium: {{today | date:"medium"}}</h2>
+		<h2>Short: {{today | date:"short"}}</h2>
+		<h2>FullDate: {{today | date:"fullDate"}}</h2>
+		<h2>LongDate: {{today | date:"longDate"}}</h2>
+		
+		<h2>MediumDate: {{today | date:"mediumDate"}}</h2>
+		<h2>ShortDate: {{today | date:"shortDate"}}</h2>
+		<h2>MediumTime: {{today | date:"mediumTime"}}</h2>
+		<h2>ShortTime: {{today | date:"shortTime"}}</h2>
+		
+		<h2>Year: {{today | date:'yyyy'}}</h2>
+		<h2>Year: {{today | date:'yy'}}</h2>
+		<h2>Month: {{today | date:'MMM'}}</h2>
+		<h2>CurrentDate: {{today | date:'dd'}}</h2>
+		<h2>CurrentDay: {{today | date:'EEEE'}}</h2>
+		<h2>CurrentDay: {{today | date:'EEE'}}</h2>
+	</div>
+	
+</body>
+</html>
+

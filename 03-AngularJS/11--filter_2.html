@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>Angular Filter Demo</title>
+	<script src="./lib/angular.min.js"></script>
+	
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller("filterDemoCtrl", function($scope){
+			$scope.list = [
+				{name:"Manish", city:"Mumbai"},
+				{name:"Shilpi", city:"Tokyo"},
+				{name:"Swapnashree", city:"Delhi"},
+				{name:"Raj", city:"Kolkata"},
+				{name:"Neha", city:"Dehradun"},
+				{name:"Ankur", city:"Chandighar"},
+				{name:"Archana", city:"Patna"}
+			]
+		})
+	</script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="filterDemoCtrl">
+<!--
+		<h3>List: {{list}}</h3>
+		<h3>List: {{list | json}}</h3>
+-->
+		<h3>Only First 3 Objects</h3>
+		<ul>
+			<li ng-repeat="obj in list|limitTo:3">Name: {{obj.name}}, City: obj.city</li>
+		</ul>
+		<h3>Only Last 3 Objects</h3>
+		<ul>
+			<li ng-repeat="obj in list | limitTo:-3">Name: {{obj.name}}, City: {{obj.city}}</li>
+		</ul>
+		<h3>Sort:name</h3>
+		<ul>
+			<li ng-repeat="obj in list | orderBy:'name'">Name: {{obj.name}}, City: {{obj.city}}</li>
+		</ul>
+		<h3>Sort:city</h3>
+		<ul>
+			<li ng-repeat="obj in list | orderBy:'city'">Name: {{obj.name}}, City: {{obj.city}}</li>
+		</ul>
+
+		</div>
+</body>
+</html>
+

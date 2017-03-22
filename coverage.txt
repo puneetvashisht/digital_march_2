@@ -82,3 +82,13 @@ Day3-AngularJs
 	$rootScope vs $scope
 	controller
 	service
+	Filter
+		puneet - PUNEET
+		new Date() - 22Mar17
+		
+		uppercase, lowercase, date, currency, number, etc...
+		limitTo, orderBy
+		
+	CustomeFilter
+		Capitalize
+		Reverse
