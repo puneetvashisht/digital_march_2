@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Grid Demo</title>
+	<script src="lib/angular.min.js"></script>
+	<script>
+		angular.module('gridApp', [])
+		.service("UserData", function(){
+			return [{"id":1,"name":"Diane","email":"dperry0@constantcontact.com","gender":"Female","city":"Stockholm"},
+{"id":2,"name":"Anna","email":"aking1@hostgator.com","gender":"Female","city":"Buga"},
+{"id":3,"name":"Larry","email":"lellis2@goodreads.com","gender":"Male","city":"Baraguá"},
+{"id":4,"name":"Patrick","email":"pflores3@hao123.com","gender":"Male","city":"Nabire"},
+{"id":5,"name":"Evelyn","email":"erodriguez4@edublogs.org","gender":"Female","city":"Lyon"},
+{"id":6,"name":"Kathryn","email":"kgibson5@army.mil","gender":"Female","city":"Norrtälje"},
+{"id":7,"name":"Paula","email":"pthompson6@biglobe.ne.jp","gender":"Female","city":"Lyon"},
+{"id":8,"name":"Joshua","email":"jrussell7@domainmarket.com","gender":"Male","city":"Binalbagan"},
+{"id":9,"name":"Raymond","email":"rjackson8@usatoday.com","gender":"Male","city":"Lyon"},
+{"id":10,"name":"Debra","email":"dlee9@psu.edu","gender":"Female","city":"Jixing"}]
+		})
+		.controller("gridCtrl", function($scope, UserData){
+			$scope.users = UserData;
+			$scope.sort = function(arg){
+				$scope.sortOrder = arg;
+			}
+		})
+	</script>
+</head>
+<body ng-app="gridApp">
+	<div ng-controller="gridCtrl">
+	
+	<input type="text" placeholder="Search here" ng-model="gridFilter.$">
+		<table border="1">
+			<tr>
+				<td>S.No.</td>
+				<td>UserId</td>
+				<td><button ng-click="sort('name')">Name</button></td>
+				<td><button ng-click="sort('email')">Email</button></td>
+				<td><button ng-click="sort('gender')">Gender</button></td>
+				<td><button ng-click="sort('city')">City</button></td>
+			</tr>
+			<tr ng-repeat="user in users | orderBy:sortOrder | filter: gridFilter">
+				<td>{{$index+1}}</td>
+				<td>{{user.id}}</td>
+				<td>{{user.name}}</td>
+				<td>{{user.email}}</td>
+				<td>{{user.gender}}</td>
+				<td>{{user.city}}</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
