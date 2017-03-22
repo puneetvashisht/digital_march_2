@@ -79,5 +79,6 @@ Day3-AngularJs
 	ng-model
 	expressions
 	module
-		$rootScope
-		controller
+	$rootScope vs $scope
+	controller
+	service

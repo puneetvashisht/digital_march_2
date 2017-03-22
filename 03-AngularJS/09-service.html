@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title>Angular Service Demo - Sharing data b/w controllers</title>
+	<script src="./lib/angular.min.js"></script>
+	
+	<script>
+		var app = angular.module("myApp", []);
+		
+		app.service("UserService", function(){
+			var user = {
+				name: "",
+				password: "",
+				gender: null,
+				email: "",
+				contact: ""
+			}
+			return user;
+		})
+		
+		app.controller("loginCtrl", function($scope, UserService){
+			$scope.name = "";
+			$scope.login = function(){
+				console.log("login now");
+				UserService.name = $scope.name;
+				console.log(UserService);
+			}
+		})
+		app.controller("welcomeCtrl", function(UserService, $scope){
+			$scope.userService = UserService;
+		})
+	</script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="loginCtrl">
+		<input type="text" placeholder="Enter name" ng-model="name"/><br/>
+		<input type="password" placeholder="Enter password" ng-model="pwd">
+		<button ng-click="login()">Login</button>
+	</div>	
+	<div ng-controller="welcomeCtrl">
+		<h2>Welcome {{userService.name}}</h2>
+<!--		{{userService | json}}-->
+	</div>	
+</body>
+</html>
+
