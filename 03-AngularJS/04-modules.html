@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>Angular Demo</title>
+	<script src="./lib/angular.min.js"></script>
+	
+	<script>
+		var app = angular.module("myFirstModule", []);
+		app.run(function($rootScope){
+			console.log("Initialized");
+			$rootScope.username = "Puneet"
+			console.log($rootScope.username);
+			
+			$rootScope.change = function(){
+				$rootScope.username = $rootScope.newName;
+				$rootScope.newName = "";
+			}
+		})
+		
+	</script>
+</head>
+<body ng-app="myFirstModule">
+	<input type="text" placeholder="Enter your name" ng-model="username"/><br/>
+	<h1>Welcome {{username}}</h1>
+	<hr/>
+	<input type="text" placeholder="Enter new Name" ng-model="newName" />
+	<button ng-click="change()">ChangeName</button>
+</body>
+</html>
+
+<!--
+Calculator
+	add
+	sub
+	mul
+	div
+	
+Scientific Calculator
+		[Calculator]
+	percent
+	root
+	undreRoot
+	square
+	-->

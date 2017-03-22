@@ -54,3 +54,29 @@ Day2 - Jquery
 						You are registered.
 					{"success":false}
 						Email already taken.
+Day3-AngularJs
+	AngularJS is a structural framework for dynamic web apps. It lets you use HTML as your template language and lets you extend HTML's syntax to express your application's components.
+	
+	
+	A library
+		A collection of functions which are useful when writing web apps. 
+		Your code is in charge and it calls into the library
+	A frameworks
+		A particular implementation of a web application, where your code fills in the details. 
+		The framework is in charge and it calls into your code when it needs something app specific.
+		
+		
+		Data binding
+		DOM control structures for repeating, showing and hiding DOM elements
+		Support form validation
+		HTML as reusable components - CustomDirectives
+		
+		
+	Module
+		A container for the different parts of your app – controllers, services, filters, directives, etc.
+		
+
+	ng-model
+	expressions
+	module
+		$rootScope

@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>Angular Demo</title>
+	<script src="./lib/angular.min.js"></script>
+	
+</head>
+<body ng-app>
+	<input type="text" placeholder="FirstName" ng-model="firstName" />
+	<input type="text" placeholder="SecondName" ng-model="secondName" /><br/>
+	<p>{{firstName + " " + secondName}}</p>
+	<p>{{"Mark" + " " + "Smith"}}</p>
+	<p>{{10+8+4}}</p>
+	<h2>Basic Calculator</h2>
+	FirstNumber: <input type="number" placeholder="First Number" ng-model="fNum"/><br/>
+	FirstNumber: <input type="number" placeholder="Second Number" ng-model="sNum"/><br/>
+	<h3>Sum: {{fNum+sNum}}</h3>
+	<h3>Mum: {{fNum*sNum}}</h3>
+	
+	<hr/>
+	
+	<h2>Simple Interest Calculator</h2>
+	Principle: <input type="number" placeholder="Principle amount" ng-model="p" /><br/>
+	Rate: <input type="number" placeholder="Rate of interest" ng-model="r" /><br/>
+	Time: <input type="number" placeholder="Time in years" ng-model="t" /><br/>
+	<h3>Simple Interest: {{(p*r*t)/100}}</h3>
+</body>
+</html>
