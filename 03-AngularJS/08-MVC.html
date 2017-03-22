@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title>Angular MVC Demo-CalcApp</title>
+	<script src="./lib/angular.min.js"></script>
+	
+	<script>
+		var app = angular.module("calculator", []);
+		app.controller("calCtrl", function(){
+			
+		})
+	</script>
+</head>
+<body ng-app="calculator" ng-controller="calCtrl">
+	<label>FirstNumber</label><input type="number" /><br/>
+	<label>SecondNumber</label><input type="number" /><br/>
+	
+	<hr/>
+	<h2>Result: 0</h2>
+	<button>Add</button>
+	<button>Sub</button>
+	<button>Mul</button>
+	<button>Div</button>
+</body>
+</html>
+

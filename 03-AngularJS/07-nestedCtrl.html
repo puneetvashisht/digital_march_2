@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Angular Controller Demo</title>
+	<style>
+		div{
+			border: 2px solid black;
+			border-radius: 15px;
+			margin: 30px;
+			padding: 30px;
+		}
+	</style>
+	<script src="./lib/angular.min.js"></script>
+	
+	<script>
+		var app = angular.module("myApp", []);
+		
+		app.controller("parentCtrl", function($scope){
+			$scope.fname = "Puneet";
+		})
+		app.controller("childCtrl", function($scope){
+			$scope.lname = "Vashisht";
+		})
+	</script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="parentCtrl">
+		FName: <input type="text" ng-model="fname"><br/>
+		{{fname + " " +lname}}
+		
+		<div ng-controller="childCtrl">
+		FName: <input type="text" ng-model="fname"><br/>
+		LName<input type="text" ng-model="lname"><br/>
+			{{fname + " " +lname}}
+		</div>
+	</div>
+	
+</body>
+</html>
+

@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>Angular Controller Demo</title>
+	<script src="./lib/angular.min.js"></script>
+	
+	<script>
+		var app = angular.module("myApp", []);
+		app.controller("counterCtrl", function($scope){
+			$scope.counter = 0;
+			$scope.inc = function(num){
+				if(num){
+					$scope.counter += num;
+				} else {
+					$scope.counter++;
+				}
+			}
+			$scope.dec = function(){
+				if($scope.counter>0){
+					$scope.counter--;
+				}
+			}
+		})
+	</script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="counterCtrl">
+		<h2>CounterValue: {{counter}}</h2>
+		<button ng-click="inc()">Increase</button>
+		<button ng-click="dec()">Decrease</button>
+	</div>
+	<div ng-controller="counterCtrl">
+		<h2>CounterValue: {{counter}}</h2>
+		<button ng-click="inc()">Increase</button>
+		<button ng-click="dec()">Decrease</button>
+		
+		<br/>
+		<input type="number" ng-model="num">
+		<button ng-click="inc(num)">Increase</button>
+	</div>
+</body>
+</html>
+

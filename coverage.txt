@@ -80,3 +80,4 @@ Day3-AngularJs
 	expressions
 	module
 		$rootScope
+		controller
