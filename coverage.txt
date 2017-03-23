@@ -111,7 +111,25 @@ Day4
 		ng-hide
 	CustomDirective - customElement
 	HTTP - Ajax
+	Validation
+	Single Page Application
 	
+	NodeJS
+		JS runs on server side
+	
+1. Download and install node
+		npm install package_name 25 
+		
+		npm install package_name --save
+				install the package and put its entry in package.json
+		
+2. npm init
+		package.json
+		
+		npm install express --save
+3. npm install
+
+4. Install RestClient or PostMan
 		
 		
 		

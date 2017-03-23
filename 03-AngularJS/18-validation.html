@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>Validation Demo</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="lib/angular.min.js"></script>
+	<script>
+		var app = angular.module('directiveDemo', []);
+		app.controller('ctrl', function($timeout, $scope){
+		})
+	</script>
+</head>
+<body ng-app="directiveDemo">
+	<div ng-controller="ctrl">
+		<form  name="myForm">
+			<input type="text" ng-model="empname" name="empname" required/>
+		</form>
+		
+		<hr/>
+		<h2>Validation</h2>
+		Pristine: {{myForm.empname.$pristine}} <br/>
+		Dirty: {{myForm.empname.$dirty}} <br/>
+		Valid: {{myForm.empname.$valid}} <br/>
+		Invalid: {{myForm.empname.$invalid}} <br/>
+	</div>
+	
+</body>
+</html>

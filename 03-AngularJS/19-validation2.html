@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>Validation Demo</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="lib/angular.min.js"></script>
+	<script>
+		var app = angular.module('directiveDemo', []);
+		app.controller('ctrl', function($timeout, $scope){
+//			$scope.user = {username:"", password:""}
+			$scope.submitForm = function(){
+				console.log("submit data to server now");
+				// if valid - change content to myAccount page
+			}
+		})
+	</script>
+</head>
+<body ng-app="directiveDemo">
+	<div ng-controller="ctrl">
+		<form class="form-horizontal" name="userForm" ng-submit="submitForm()">
+	  
+		  <div class="form-group">
+			<label class="col-sm-2">UserId</label>
+			<div class="col-sm-10">
+			  <input type="text" class="form-control" placeholder="UserId" ng-model="user.username" name="username" ng-minlength="5" ng-maxlength="8" required>
+			<p ng-show="userForm.username.$error.minlength" class="text-danger">Username is too short(Min 5)</p>
+			<p ng-show="userForm.username.$error.maxlength" class="text-danger">Username is too long(Min 8)</p>
+			<p ng-show="userForm.username.$invalid && userForm.username.$dirty" class="text-danger">Empty name</p>
+			</div>
+		  </div>
+		  
+		  <div class="form-group">
+			<label class="col-sm-2">Password</label>
+			<div class="col-sm-10">
+			  <input type="text" class="form-control" placeholder="Password" required ng-pattern="/^[a-zA-Z]/" ng-model="user.password" name="password" />
+			  <p ng-show="userForm.password.$invalid && userForm.password.$dirty" class="text-danger">Alphabets Only</p>
+			</div>
+		  </div>
+		  
+			
+		  <div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+			  <button type="submit" class="btn btn-default" ng-disabled="userForm.$invalid">Sign in</button>
+			</div>
+		  </div>
+		  
+		</form>
+	</div>
+	
+</body>
+</html>

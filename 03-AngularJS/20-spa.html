@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>SinglePageApp</title>
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/angular-route.min.js"></script>
+	<script>
+		var app = angular.module('directiveDemo', ['ngRoute']);
+		app.controller('ctrl', function($timeout, $scope){
+		})
+		
+		app.config(function($routeProvider){
+			$routeProvider
+			.when('/', {
+				template: "Home Page"
+			})
+			.when('/login', {
+				template: "Login Page"
+			})
+			.otherwise({
+//				template: "Page not found"
+				redirectTo: "/"
+			})
+		})
+	</script>
+</head>
+<body ng-app="directiveDemo">
+<header><a href="#/">Home</a>&nbsp;<a href="#/login">Login</a></header>
+	<hr/>
+	<ng-view></ng-view>
+	<hr/>
+<footer><h2>I am app footer</h2></footer>
+</body>
+</html>
