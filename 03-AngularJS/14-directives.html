@@ -1,0 +1,49 @@
+<html>
+<head>
+	<title>Directives Demo</title>
+	<script src="lib/angular.min.js"></script>
+	<script>
+		var app = angular.module('directiveDemo', []);
+		
+		app.controller('ctrl', function($timeout, $scope){
+			$scope.isDisabled = true;
+			$timeout(function(){
+				$scope.isDisabled = false;
+				console.log("after 5 secs");
+			}, 5000);
+		})
+	</script>
+</head>
+<body ng-app="directiveDemo">
+	<div ng-controller="ctrl">
+		<h1>DirectiveList</h1>
+		<h2>ng-disabled</h2>
+		<input type="text" ng-model="someProperty">
+		<button ng-disabled="!someProperty">Login</button>
+		<br/>
+		<textarea ng-disabled="isDisabled" cols="30" rows="10"></textarea>
+		<hr/>
+		<h2>ng-readonly</h2>
+		<input type="text" value="Puneet Vashsisht" ng-readonly="true">
+		
+		<hr/>
+		<h2>ng-checked/ng-int/ng-selected</h2>
+		Change Gender: <input type="checkbox" ng-init="chkProperty=true" ng-model="chkProperty"/>
+		<select ng-disabled="true">
+			<option ng-selected="chkProperty">Male</option>
+			<option ng-selected="!chkProperty">Female</option>
+		</select>
+		<hr/>
+		<h2>ng-show/ng-hide/ng-if</h2>
+		<p ng-show="chkProperty">I am Male</p>
+		<p ng-hide="chkProperty">I am Female</p>
+		<br/>
+		<p ng-if="chkProperty">Welcome Male</p>
+		<p ng-if="!chkProperty">Welcome Female</p>
+		<br/>
+		<br/>
+		<br/>
+		
+	</div>
+</body>
+</html>

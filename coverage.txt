@@ -92,3 +92,28 @@ Day3-AngularJs
 	CustomeFilter
 		Capitalize
 		Reverse
+		
+		Grid Layout
+			table - sort
+			
+Day4 
+	Directive
+		ng-app="myApp"
+		ng-model
+		ng-click
+		ng-repeat
+		ng-submit
+		
+		ng-disabled
+		ng-if
+		ng-init
+		ng-show
+		ng-hide
+		
+		
+		
+		
+		
+		
+		
+		
