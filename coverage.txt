@@ -37,7 +37,7 @@ Day2 - Jquery
 			Write todo app in jquery
 	Animation
 	Validation
-	Ajax - HTTP request
+	Ajax - HTTP request 
 	
 		Exercise:
 			Write SignUp page
