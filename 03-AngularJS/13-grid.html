@@ -5,16 +5,16 @@
 	<script>
 		angular.module('gridApp', [])
 		.service("UserData", function(){
-			return [{"id":1,"name":"Diane","email":"dperry0@constantcontact.com","gender":"Female","city":"Stockholm"},
-{"id":2,"name":"Anna","email":"aking1@hostgator.com","gender":"Female","city":"Buga"},
-{"id":3,"name":"Larry","email":"lellis2@goodreads.com","gender":"Male","city":"Baraguá"},
-{"id":4,"name":"Patrick","email":"pflores3@hao123.com","gender":"Male","city":"Nabire"},
-{"id":5,"name":"Evelyn","email":"erodriguez4@edublogs.org","gender":"Female","city":"Lyon"},
-{"id":6,"name":"Kathryn","email":"kgibson5@army.mil","gender":"Female","city":"Norrtälje"},
-{"id":7,"name":"Paula","email":"pthompson6@biglobe.ne.jp","gender":"Female","city":"Lyon"},
-{"id":8,"name":"Joshua","email":"jrussell7@domainmarket.com","gender":"Male","city":"Binalbagan"},
-{"id":9,"name":"Raymond","email":"rjackson8@usatoday.com","gender":"Male","city":"Lyon"},
-{"id":10,"name":"Debra","email":"dlee9@psu.edu","gender":"Female","city":"Jixing"}]
+			return [{"id":1,"name":"Diane","email":"dperry0@constantcontact.com","gender":"F","city":"Stockholm"},
+{"id":2,"name":"Anna","email":"aking1@hostgator.com","gender":"F","city":"Buga"},
+{"id":3,"name":"Larry","email":"lellis2@goodreads.com","gender":"M","city":"Baraguá"},
+{"id":4,"name":"Patrick","email":"pflores3@hao123.com","gender":"M","city":"Nabire"},
+{"id":5,"name":"Evelyn","email":"erodriguez4@edublogs.org","gender":"F","city":"Lyon"},
+{"id":6,"name":"Kathryn","email":"kgibson5@army.mil","gender":"F","city":"Norrtälje"},
+{"id":7,"name":"Paula","email":"pthompson6@biglobe.ne.jp","gender":"F","city":"Lyon"},
+{"id":8,"name":"Joshua","email":"jrussell7@domainmarket.com","gender":"M","city":"Binalbagan"},
+{"id":9,"name":"Raymond","email":"rjackson8@usatoday.com","gender":"M","city":"Lyon"},
+{"id":10,"name":"Debra","email":"dlee9@psu.edu","gender":"F","city":"Jixing"}]
 		})
 		.controller("gridCtrl", function($scope, UserData){
 			$scope.users = UserData;
@@ -37,7 +37,7 @@
 				<td><button ng-click="sort('gender')">Gender</button></td>
 				<td><button ng-click="sort('city')">City</button></td>
 			</tr>
-			<tr ng-repeat="user in users | orderBy:sortOrder | filter: gridFilter">
+			<tr ng-repeat="user in users | filter: gridFilter | orderBy:sortOrder">
 				<td>{{$index+1}}</td>
 				<td>{{user.id}}</td>
 				<td>{{user.name}}</td>
