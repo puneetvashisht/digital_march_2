@@ -110,6 +110,7 @@ Day4
 		ng-show
 		ng-hide
 	CustomDirective - customElement
+	HTTP - Ajax
 	
 		
 		

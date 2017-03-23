@@ -1,0 +1,55 @@
+<html>
+<head>
+	<title>Directives Demo</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="lib/angular.min.js"></script>
+	<script>
+		var app = angular.module('directiveDemo', []);
+		app.directive('panel', function(){
+			return {
+				templateUrl: "./templates/panel.html",
+				restrict: "E",
+				scope: {
+					title: "@name"
+				},
+				link: function(scope, element, attr){
+//					console.log(scope)
+//					console.log(element)
+//					console.log(attr)
+					
+					element.bind('click', function(){
+						console.log(attr.name + " is clicked")
+					});
+					element.bind('mouseenter', function(){
+						console.log("change bootstrap class to primary")
+						console.log(element.children())
+						element.children().removeClass("panel panel-success")
+						element.children().addClass("panel panel-primary")
+					});
+					element.bind('mouseleave', function(){
+						console.log("change bootstrap class to default")
+						element.children().removeClass("panel panel-primary")
+						element.children().addClass("panel panel-success")
+					});
+				}
+			}
+		})
+		app.controller('ctrl', function($timeout, $scope){
+			$scope.list = ["AngularJS", "Jquery", "NodeJs", "HTML5"]
+		})
+	</script>
+</head>
+<body ng-app="directiveDemo">
+	<div ng-controller="ctrl">
+	
+		<div ng-repeat="title in list">
+			<panel name={{title}}></panel>
+		</div>
+<!--
+		<panel name="AngularJS"></panel>
+		<panel name="NodeJS"></panel>
+-->
+	</div>
+	
+</body>
+</html>
