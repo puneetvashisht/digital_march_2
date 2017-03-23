@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Directives Demo</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="lib/angular.min.js"></script>
+	<script>
+		var app = angular.module('directiveDemo', []);
+		
+		app.directive("userForm", function(){
+			console.log("html is asking for custom element");
+			return {
+//				template: "<h1 style='background:red'>User Form</h1>"+
+//				"<h2>UserName</h2>"
+				templateUrl: "./templates/userForm.html",
+				restrict:"EAC"
+				
+			}
+		})
+		app.controller('ctrl', function($timeout, $scope){
+		})
+	</script>
+</head>
+<body ng-app="directiveDemo">
+	<div ng-controller="ctrl">
+		<user-form></user-form>
+		<div user-form="false"></div>
+		<div class="user-form"></div>
+		
+		
+	</div>
+	
+</body>
+</html>
