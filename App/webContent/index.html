@@ -1,0 +1,49 @@
+<html>
+<head>
+	<title>SinglePageApp</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/angular-route.min.js"></script>
+	<script>
+		var app = angular.module('directiveDemo', ['ngRoute']);
+		
+		app.controller('loginCtrl', function($scope, $location){
+			$scope.submitForm = function(){
+				console.log("submit data to server now");
+				console.log($location.path)
+				$location.path("/account")
+			}
+		})
+		
+		app.controller('accountCtrl', function(){
+			console.log("User is in account page")
+		})
+		
+		app.config(function($routeProvider){
+			$routeProvider
+			.when('/', {
+				template: "Home Page"
+			})
+			.when('/login', {
+				templateUrl: "./templates/loginPage.html",
+				controller: "loginCtrl"
+			})
+			.when('/account', {
+				templateUrl: "./templates/accountPage.html",
+				controller: "accountCtrl"
+			})
+			.otherwise({
+//				template: "Page not found"
+				redirectTo: "/"
+			})
+		})
+	</script>
+</head>
+<body ng-app="directiveDemo">
+<header><a href="#/">Home</a>&nbsp;<a href="#/login">Login</a></header>
+	<hr/>
+	<ng-view></ng-view>
+	<hr/>
+<footer><h2>I am app footer</h2></footer>
+</body>
+</html>

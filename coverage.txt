@@ -131,8 +131,31 @@ Day4
 
 4. Install RestClient or PostMan
 		
+
+Day 5
+	MongodDB
+		https://www.mongodb.com/download-center#community
+	Download and install
+	
+	Run mongodb
+		mongod --dbpath myDb
+	Connect to mongodb
+		mongo
 		
+	npm init
+	npm install express body-parser mongodb --save
+	
+	For you
+		npm install
 		
+	Create 	- post
+	Read 	- get
+	Update 	- put
+	Delete 	- delete
+	
+	
+Project:
+	PollApp
 		
 		
 		
