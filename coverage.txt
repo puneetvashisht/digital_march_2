@@ -155,7 +155,7 @@ Day 5
 	
 	
 Project:
-	PollApp
+	PollApp	- MEAN
 		
 		
 		
